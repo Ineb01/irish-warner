@@ -1,0 +1,23 @@
+{
+  "name": "irish-warner",
+  "version": "1.0.0",
+  "description": "Reservation warning for The Irish restaurant in Steyr",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "node src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ineb01/irish-warner.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ineb01/irish-warner/issues"
+  },
+  "homepage": "https://github.com/Ineb01/irish-warner#readme",
+  "dependencies": {
+    "discord.js": "^13.7.0",
+    "follow-redirects": "^1.15.0"
+  }
+}
