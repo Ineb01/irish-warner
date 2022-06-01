@@ -19,6 +19,7 @@ irish.countAvailableTables = async (seats, date) => {
             });
             res.on("end", function (chunk) {
                 var body = Buffer.concat(chunks);
+                console.log(body.toString())
                 if(JSON.parse(body.toString()) != undefined && JSON.parse(body.toString()).slots != undefined)
                     resolve(JSON.parse(body.toString()).slots.length);
                 else
