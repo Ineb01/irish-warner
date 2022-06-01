@@ -10,9 +10,9 @@ const { Routes } = require('discord-api-types/v9');
 const { Client, Intents } = require('discord.js');
 
 
-//const app = express();
+const app = express();
 
-/*app.get('/api/count', (req, res) => {
+app.get('/api/count', (req, res) => {
   date = new Date()
   while (date.getDay() != 6) {
     date.setDate(date.getDate() + 1)
@@ -23,7 +23,7 @@ const { Client, Intents } = require('discord.js');
 })
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`))
-*/
+
 
 const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]
