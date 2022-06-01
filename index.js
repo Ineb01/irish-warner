@@ -46,6 +46,7 @@ irish.ev.on("change", (data) => {
 });
 
 irish.ev.on("update", (data) => {
+  client.users.cache.get("304699475757236224").send("update: " + JSON.stringify(data));
   console.log("update:" + JSON.stringify(data));
 });
 
