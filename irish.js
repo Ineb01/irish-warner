@@ -19,7 +19,10 @@ irish.countAvailableTables = async (seats, date) => {
             });
             res.on("end", function (chunk) {
                 var body = Buffer.concat(chunks);
-                resolve(JSON.parse(body.toString()).slots.length);
+                if(JSON.parse(body.toString()) != undefined && JSON.parse(body.toString()).slots != undefined)
+                    resolve(JSON.parse(body.toString()).slots.length);
+                else
+                    resolve(-1);
             });
             res.on("error", function (error) {
                 reject(error);
@@ -38,15 +41,16 @@ update = async()=>{
         newmap[date.toISOString().slice(0, 10)] = await irish.countAvailableTables(8, date);
     }
     for (let key in newmap) {
-        if(newmap[key] != irish.map[key]) {
+        if(irish.map[key] != null && newmap[key] != irish.map[key]) {
             irish.ev.emit("change", {date:new Date(key), number:newmap[key]});
         }
     }
     irish.map = newmap;
     irish.ev.emit("update", irish.map);
 }
+update()
 
-setInterval(update, 1000)
+setInterval(update, process.env.IRISH_UPDATE_INTERVAL)
 
 
 

@@ -38,6 +38,9 @@ client.on("messageCreate", (message) => {
 });
 
 irish.ev.on("change", (data) => {
+  if(data.number == 5 || data.number == 3 || data.number == 1) {
+    client.channels.cache.get("739807740691248897").send(`Only ${data.number} tables available on ${data.date.toDateString()}`);
+  }
   client.users.cache.get("304699475757236224").send(`${data.number} tables available on ${data.date.toDateString()}`);
   console.log(data);
 });
@@ -51,6 +54,11 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   client.users.fetch("304699475757236224");
 });
+
+//355343782012780544 xFall
+//688038286387839173 Mathias Garstenauer
+//304699475757236224 Benjamin Bachmayr
+
 
 client.login(process.env.DISCORD_TOKEN);
 
